@@ -1,0 +1,56 @@
+.signup-modal{
+    top:0;
+    left: 0;
+    position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  z-index: 9999;
+}
+.signup-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFC4C4;
+    padding: 40px;
+    border-radius: 10px;
+    gap: 40px;
+}
+.signup-button{
+  padding: 15px;
+  width: 200px;
+  cursor: pointer;
+  background-color: #F9FFA1;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+.signup-button:hover{
+  background-color: #f6fd8d;
+  transform: scale(1.01);
+}
+.input-error {
+  border: 2px solid red;
+  background-color: #ffe5e5;
+}
+.exist-account{
+
+  display: flex;
+  gap: 190px;
+}
+.exist-account h4{
+
+  font-weight: normal;
+
+}
+.log-in{
+  font-style: italic;
+}
+.log-in:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}

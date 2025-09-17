@@ -1,0 +1,66 @@
+
+.login-modal {
+    top:0;
+    left: 0;
+    position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  z-index: 9999; /* Make sure it's on top */
+}
+.login-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFC4C4;
+    padding: 40px;
+    border-radius: 10px;
+    gap: 40px;
+}   
+
+h2{
+  font-size: 3rem;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+input{
+  padding: 17px;
+  width: 400px;
+  font-size: 1rem;
+}
+
+.login-issue{
+  display: flex;
+  gap: 230px;
+}
+
+.login-button{
+  padding: 15px;
+  width: 200px;
+  cursor: pointer;
+  background-color: #F9FFA1;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+.login-button:hover{
+  background-color: #f6fd8d;
+  transform: scale(1.01);
+}
+
+.forget:hover,.sign-up:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.error-message{
+  color:red;
+}

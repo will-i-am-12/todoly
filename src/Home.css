@@ -1,0 +1,39 @@
+.circle:first-child{
+    display: block;
+    top: -750px;
+    left: -700px;
+    position: fixed;
+    z-index: -1;
+    border-radius: 50%;
+    width: 1500px;
+    height: 1500px;
+    background-color: #F9FFA1;
+}
+.circle:nth-child(2){
+    display: block;
+    bottom: -850px;
+    right: -750px;
+    position: fixed;
+    z-index: -1;
+    border-radius: 50%;
+    width: 1500px;
+    height: 1500px;
+    background-color: #F9FFA1;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.title h1{
+    font-size: 6rem ;
+
+}
+.title h2{
+    padding-top: 40px;
+    font-size: 2rem;
+}

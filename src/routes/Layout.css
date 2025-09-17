@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+    background-color: black;
+    width: 100%;
+    padding: 20px;
+
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+}
+
+.buttons{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.login,.signup{
+    padding:  10px 30px;
+    background-color: #F9FFA1;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+.nav-icons{
+  color: white;
+  font-size: 2rem; /* optional: change icon size */
+  display: flex; /* optional: for horizontal layout */
+  gap: 30px;
+}
+.nav-icons a{
+  color: white;
+}
+.content{
+    padding-top: 80px;
+}

@@ -21,14 +21,22 @@ const Signup = ({onClose,LoginAccount,checkEmail}) =>{
         setLoading(false);
         return;
     }
+    if (password.length < 6) {
+        setError("Password should be more than 6 characters!");
+        setLoading(false);
+        return;
+    }
         try{    
             const result = await signUpNewUser(email,password);
             if(result.success){
                 onClose()
                 checkEmail()
             }
+            setError(result.error.message);
+
         }catch(err){
             setError("an error occured");
+        
         }
         finally{
             setLoading(false);

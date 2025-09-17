@@ -40,17 +40,16 @@
 .exist-account{
 
   display: flex;
-  gap: 190px;
+  gap: 10px;
 }
 .exist-account h4{
 
   font-weight: normal;
-
 }
 .log-in{
-  font-style: italic;
+  text-decoration: underline;
 }
 .log-in:hover{
   cursor: pointer;
-  text-decoration: underline;
+  color:  #F9FFA1;
 }

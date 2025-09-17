@@ -49,7 +49,6 @@ const Signup = ({onClose,LoginAccount,checkEmail}) =>{
     }}
 
     const handleLogin = ()=>{
-        e.preventDefault();
         onClose();
         LoginAccount();
 

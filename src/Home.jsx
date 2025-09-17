@@ -9,7 +9,7 @@ function Home() {
       <span className='circle'></span>
       <div className='title'>  
         <h1>TODOLY</h1>
-        <h2>TRACK ALL YOUR TASK HERE!</h2>
+        <h2>TRACK ALL YOUR TASKS HERE!</h2>
       </div>
     </div>
   )

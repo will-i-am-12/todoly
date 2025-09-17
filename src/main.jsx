@@ -18,8 +18,8 @@ createRoot(document.getElementById('root')).render(
             <Route index element={<Home />} />
             <Route element={<PrivateRoute />}>
               <Route path='/tasks' element={<Tasks/>} />
-              <Route path='/create' element={<Create />} />
             </Route>
+            <Route path='/create' element={<Create />} />
             <Route path='/*' element={<NotFound/>}/>
           </Route>
         </Routes>

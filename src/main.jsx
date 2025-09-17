@@ -9,7 +9,6 @@ import Tasks from './pages/Tasks.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 import PrivateRoute from './routes/PrivateRoute.jsx'
 import NotFound from './routes/NotFound.jsx'
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthContextProvider>

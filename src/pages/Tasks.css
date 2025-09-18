@@ -1,12 +1,12 @@
 .circle-bottom{
-    display: block;
-    bottom: -850px;
-    right: -750px;
+     display: block;
+    bottom: -110%;
+    right: -50%;
     position: fixed;
     z-index: -1;
     border-radius: 50%;
-    width: 1500px;
-    height: 1500px;
+    width: 103%;
+    height: 201%;
     background-color: #F9FFA1;
 }
 .signout{

@@ -10,9 +10,7 @@ export const AuthContextProvider = ({children})=>{
         const{data,error} = await supabase.auth.signUp({
             email:email,
             password: password,
-        }, {
-        redirectTo:"https://wtodoly.netlify.app"
-    })
+        })
         if(error){
             console.error("there is a problem", error);
             return{success:false,error}

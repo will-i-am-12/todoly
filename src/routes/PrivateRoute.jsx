@@ -9,7 +9,6 @@ const PrivateRoute = () => {
   }
 
 
-  console.log(session,loading);
   if (!session) {
     return <Navigate to="/" replace />;
   }

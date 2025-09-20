@@ -67,7 +67,7 @@ const Signup = ({onClose,LoginAccount,checkEmail}) =>{
                 <h1>CREATE ACCOUNT</h1>
                 <form onSubmit={handleSignup}>
                     <input 
-                    id='username'
+                    id='email'
                     placeholder='Enter Email'
                     type='text'
                     value={email}

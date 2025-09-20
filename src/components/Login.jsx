@@ -3,7 +3,7 @@ import './Login.css'
 import { UserAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({onClose,createAccount})=>{
+const Login = ({onClose,createAccount,resetPassword})=>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error,setError] = useState("");
@@ -51,7 +51,7 @@ const Login = ({onClose,createAccount})=>{
     }
     const handleForgetPassword = ()=>{
         onClose();
-        //open forget password form
+        resetPassword();
     }
     return(
             <>
@@ -61,7 +61,7 @@ const Login = ({onClose,createAccount})=>{
                     <form onSubmit={handleSignIn}>
                         <div>
                             <input
-                            id="username"
+                            id="email"
                             type="text"
                             value={email}
                             onChange={e => setEmail(e.target.value)}

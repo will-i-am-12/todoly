@@ -9,6 +9,7 @@ import Tasks from './pages/Tasks.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 import PrivateRoute from './routes/PrivateRoute.jsx'
 import NotFound from './routes/NotFound.jsx'
+import UpdatePassword from './routes/UpdatePassword.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthContextProvider>
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')).render(
               <Route path='/tasks' element={<Tasks/>} />
               <Route path='/create' element={<Create />} />
             </Route>
+            <Route path='/update-password' element={<UpdatePassword/>}/>
             <Route path='/*' element={<NotFound/>}/>
           </Route>
         </Routes>

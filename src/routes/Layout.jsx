@@ -7,12 +7,13 @@ import Login from '../components/Login.jsx'
 import Signup from "../components/Signup.jsx"
 import { UserAuth } from '../context/AuthContext';
 import CheckEmail from "../components/CheckEmail.jsx"
+import ResetPassword from "../components/resetPassword.jsx"
 const Layout = () =>{
     const [openLogin,setOpenLogin] = useState(false);
     const [openSignup,setOpenSignup] = useState(false);
     const { session } = UserAuth();
     const [emailSent, setEmailSent] = useState(false);
-    
+    const [forgetPassword,setForgetPassword] = useState(false);
 
     return(
         <div className="app-layout">
@@ -37,9 +38,10 @@ const Layout = () =>{
             <div className="content">
                 <Outlet/>
             </div>
-            {openLogin && <Login onClose={()=>setOpenLogin(false)} createAccount={()=>setOpenSignup(true)} />}
+            {openLogin && <Login onClose={()=>setOpenLogin(false)} createAccount={()=>setOpenSignup(true)} resetPassword={()=>setForgetPassword(true)}/>}
             {openSignup && <Signup onClose={()=>setOpenSignup(false)} LoginAccount={()=>setOpenLogin(true)} checkEmail={()=>setEmailSent(true)}/>}
             {emailSent && <CheckEmail onClose={()=>setEmailSent(false)}/>}
+            {forgetPassword && <ResetPassword onClose={()=>setForgetPassword(false) } LoginAccount={()=>setOpenLogin(true)}/>}
         </div>
 
     )

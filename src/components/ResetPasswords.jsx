@@ -22,7 +22,7 @@ const ResetPasswords = ({onClose,LoginAccount}) =>{
         e.preventDefault();
 
         const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: 'https://my-app.netlify.app/update-password',
+            redirectTo: 'https://wtodoly.netlify.app/update-password',
         });
 
         if (error) {

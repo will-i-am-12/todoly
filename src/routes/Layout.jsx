@@ -41,7 +41,7 @@ const Layout = () =>{
             {openLogin && <Login onClose={()=>setOpenLogin(false)} createAccount={()=>setOpenSignup(true)} resetPassword={()=>setForgetPassword(true)}/>}
             {openSignup && <Signup onClose={()=>setOpenSignup(false)} LoginAccount={()=>setOpenLogin(true)} checkEmail={()=>setEmailSent(true)}/>}
             {emailSent && <CheckEmail onClose={()=>setEmailSent(false)}/>}
-            {forgetPassword && <ResetPassword onClose={()=>setForgetPassword(false) } LoginAccount={()=>setOpenLogin(true)}/>}
+            {forgetPassword && <ResetPasswords onClose={()=>setForgetPassword(false) } LoginAccount={()=>setOpenLogin(true)}/>}
         </div>
 
     )

@@ -1,8 +1,8 @@
-import './ResetPassword.css'
+import './ResetPasswords.css'
 import { useState,useEffect } from 'react'
 import {supabase} from '/client.js'
 
-const ResetPassword = ({onClose,LoginAccount}) =>{
+const ResetPasswords = ({onClose,LoginAccount}) =>{
 
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState(null);
@@ -63,4 +63,4 @@ const ResetPassword = ({onClose,LoginAccount}) =>{
         </div>
     )
 }
-export default ResetPassword
+export default ResetPasswords

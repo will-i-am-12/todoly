@@ -6,8 +6,8 @@ import { faHome, faCirclePlus, faUser } from '@fortawesome/free-solid-svg-icons'
 import Login from '../components/Login.jsx'
 import Signup from "../components/Signup.jsx"
 import { UserAuth } from '../context/AuthContext';
-import CheckEmail from "../components/CheckEmail.jsx"
-import ResetPassword from "../components/resetPassword.jsx"
+import CheckEmail from "../components/CheckEmail.jsx";
+import ResetPasswords from "../components/ResetPasswords.jsx";
 const Layout = () =>{
     const [openLogin,setOpenLogin] = useState(false);
     const [openSignup,setOpenSignup] = useState(false);

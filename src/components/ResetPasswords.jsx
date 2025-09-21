@@ -40,7 +40,7 @@ const ResetPasswords = ({onClose,LoginAccount}) =>{
 
         <div className='reset-password-modal'  onClick={handleOverlayClick}>
             <div className='reset-password-content'>
-                <h1>Reset Passowrd</h1>
+                <h1>Reset Password</h1>
                 <p>Enter the email address you signed up with, and we’ll send you a reset link.</p>
                 <form onSubmit={handleForgetPassword}>
                     <input

@@ -4,32 +4,41 @@ import { supabase } from '/client';
 
 const UpdatePassword = () => {
   const [searchParams] = useSearchParams();
-  const [sessionChecked, setSessionChecked] = useState(false);
-  const [validSession, setValidSession] = useState(false);
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(null);
+  const [sessionChecked, setSessionChecked] = useState(false);
+  const [validSession, setValidSession] = useState(false);
   const navigate = useNavigate();
 
   const accessToken = searchParams.get('access_token');
   const type = searchParams.get('type');
 
   useEffect(() => {
-    const validateRecovery = async () => {
-      if (accessToken && type === 'recovery') {
-        const { data: { session }, error } = await supabase.auth.getSession();
-
-        if (session && !error) {
-          setValidSession(true); // ✅ Verified
-        } else {
-          console.error('Session error:', error);
-        }
+    const { data: listener } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'PASSWORD_RECOVERY' && session) {
+        setValidSession(true);
       }
+      setSessionChecked(true);
+    });
 
-      setSessionChecked(true); // ✅ We're done checking, either way
+    // Trigger immediate check just in case session is already available
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) {
+        setValidSession(true);
+      }
+      setSessionChecked(true);
+    });
+
+    return () => {
+      listener.subscription.unsubscribe();
     };
+  }, []);
 
-    validateRecovery();
-  }, [accessToken, type]);
+  useEffect(() => {
+    if (sessionChecked && !validSession) {
+      navigate('/');
+    }
+  }, [sessionChecked, validSession, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,16 +50,7 @@ const UpdatePassword = () => {
     }
   };
 
-  // ⛔ If session check is done and user is not valid, redirect them
-  useEffect(() => {
-    if (sessionChecked && !validSession) {
-      navigate('/'); // or show a 403 message
-    }
-  }, [sessionChecked, validSession, navigate]);
-
-  if (!sessionChecked) {
-    return <p>Verifying reset link...</p>;
-  }
+  if (!sessionChecked) return <p>Verifying reset session...</p>;
 
   return (
     <div className="update-password-page">
@@ -65,9 +65,10 @@ const UpdatePassword = () => {
         />
         <button type="submit">Update Password</button>
       </form>
-      {status && <p className={status.success ? 'success' : 'error'}>{status.message}</p>}
+      {status && (
+        <p className={status.success ? 'success' : 'error'}>{status.message}</p>
+      )}
     </div>
   );
 };
-
 export default UpdatePassword;

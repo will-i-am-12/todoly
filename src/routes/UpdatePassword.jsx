@@ -46,7 +46,6 @@ const UpdatePassword = () => {
     e.preventDefault();
     if (password !== confirmPassword) {
         setError("Passwords do not match");
-        setLoading(false);
         return;
     }
     const { error } = await supabase.auth.updateUser({ password });
@@ -73,7 +72,7 @@ const UpdatePassword = () => {
         />
         <input
           type="password"
-          placeholder="New password"
+          placeholder="Confirm password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required

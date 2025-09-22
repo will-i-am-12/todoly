@@ -21,17 +21,26 @@ const Layout = () =>{
                 <h1 className="logo">TODOLY</h1>
                 <div className="buttons">
                     {session ? (
+                        <>
                         <div className="nav-icons">
                             <Link to='/tasks'><FontAwesomeIcon icon={faHome} /></Link>
                             <Link to ='/create'><FontAwesomeIcon icon={faCirclePlus} /></Link>
                             <div onClick={()=>setOpenProfile(prev=>!prev)}><FontAwesomeIcon icon={faUser} /></div>
                         </div>
-                    )
-                    :(
-                    <>
-                        <button onClick={()=>setOpenLogin(true)} className="login">Log in</button>
-                        <button onClick={()=>setOpenSignup(true)} className="signup">Sign up</button>
-                    </>)
+                            {
+                                openProfile &&(
+                                <div className="profile-dropdown">
+                                            <p>Profile Options</p>
+                                </div>
+                                    )
+                            }
+                        </>
+                        )
+                        :(
+                        <>
+                            <button onClick={()=>setOpenLogin(true)} className="login">Log in</button>
+                            <button onClick={()=>setOpenSignup(true)} className="signup">Sign up</button>
+                        </>)
                     }
                 </div>
             </nav>

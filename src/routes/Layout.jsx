@@ -14,7 +14,7 @@ const Layout = () =>{
     const { session } = UserAuth();
     const [emailSent, setEmailSent] = useState(false);
     const [forgetPassword,setForgetPassword] = useState(false);
-
+    const [openProfile, setOpenProfile] = useState(false);
     return(
         <div className="app-layout">
             <nav className="nav-bar">
@@ -24,7 +24,7 @@ const Layout = () =>{
                         <div className="nav-icons">
                             <Link to='/tasks'><FontAwesomeIcon icon={faHome} /></Link>
                             <Link to ='/create'><FontAwesomeIcon icon={faCirclePlus} /></Link>
-                            <Link to = '/'><FontAwesomeIcon icon={faUser} /></Link>
+                            <div onClick={()=>setOpenProfile(prev=>!prev)}><FontAwesomeIcon icon={faUser} /></div>
                         </div>
                     )
                     :(

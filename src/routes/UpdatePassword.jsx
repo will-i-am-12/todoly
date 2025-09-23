@@ -1,52 +1,49 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { supabase } from '/client';
+import { UserAuth } from '../context/AuthContext';
 
 const UpdatePassword = () => {
+  const [signOut] = UserAuth
   const [searchParams] = useSearchParams();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [status, setStatus] = useState(null);
-  // const [sessionChecked, setSessionChecked] = useState(false);
-  // const [validSession, setValidSession] = useState(false);
+  const [sessionChecked, setSessionChecked] = useState(false);
+  const [validSession, setValidSession] = useState(false);
   const [error, setError] = useState("")
   const navigate = useNavigate();
 
-  const refreshToken = searchParams.get('refresh_token');
-  const accessToken = searchParams.get('access_token');
-  const type = searchParams.get('type');
+  
+  // const accessToken = searchParams.get('access_token');
+  // const type = searchParams.get('type');
 
   useEffect(() => {
-    const init = async () => {
-      if (type === 'recovery' && accessToken && refreshToken) {
-        // Try to set the session from URL tokens
-        const { data, error } = await supabase.auth.setSession({
-          access_token: accessToken,
-          refresh_token: refreshToken,
-        });
-
-        if (error) {
-          console.error(error);
-          navigate('/');
-          return;
-        }
-
-        if (data?.session) {
-          setValidSession(true);
-        }
-      } else {
-        navigate('/');
+    const { data: listener } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'PASSWORD_RECOVERY' && session) {
+        setValidSession(true);
       }
-    };
+      setSessionChecked(true);
+    });
 
-    init();
-  }, [type, accessToken, refreshToken, navigate]);
-  
-  // useEffect(() => {
-  //   if (sessionChecked && !validSession) {
-  //     navigate('/');
-  //   }
-  // }, [sessionChecked, validSession, navigate]);
+    // Trigger immediate check just in case session is already available
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) {
+        setValidSession(true);
+      }
+      setSessionChecked(true);
+    });
+
+    return () => {
+      listener.subscription.unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (sessionChecked && !validSession) {
+      navigate('/');
+    }
+  }, [sessionChecked, validSession, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,9 +63,7 @@ const UpdatePassword = () => {
   
   };
 
-  if (!validSession) return null;
-
-  // if (!sessionChecked) return <p>Verifying reset session...</p>;
+  if (!sessionChecked) return <p>Verifying reset session...</p>;
 
   return (
     <div className="update-password-page">

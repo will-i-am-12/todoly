@@ -51,6 +51,7 @@ const Layout = () =>{
             {openSignup && <Signup onClose={()=>setOpenSignup(false)} LoginAccount={()=>setOpenLogin(true)} checkEmail={()=>setEmailSent(true)}/>}
             {emailSent && <CheckEmail onClose={()=>setEmailSent(false)}/>}
             {forgetPassword && <ResetPasswords onClose={()=>setForgetPassword(false) } LoginAccount={()=>setOpenLogin(true)}/>}
+            {session && setForgetPassword(false)}
         </div>
 
     )

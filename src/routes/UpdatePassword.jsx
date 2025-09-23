@@ -7,40 +7,46 @@ const UpdatePassword = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [status, setStatus] = useState(null);
-  const [sessionChecked, setSessionChecked] = useState(false);
-  const [validSession, setValidSession] = useState(false);
+  // const [sessionChecked, setSessionChecked] = useState(false);
+  // const [validSession, setValidSession] = useState(false);
   const [error, setError] = useState("")
   const navigate = useNavigate();
 
+  const refreshToken = searchParams.get('refresh_token');
   const accessToken = searchParams.get('access_token');
   const type = searchParams.get('type');
 
   useEffect(() => {
-    const { data: listener } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'PASSWORD_RECOVERY' && session) {
-        setValidSession(true);
-      }
-      setSessionChecked(true);
-    });
+    const init = async () => {
+      if (type === 'recovery' && accessToken && refreshToken) {
+        // Try to set the session from URL tokens
+        const { data, error } = await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken,
+        });
 
-    // Trigger immediate check just in case session is already available
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) {
-        setValidSession(true);
-      }
-      setSessionChecked(true);
-    });
+        if (error) {
+          console.error(error);
+          navigate('/');
+          return;
+        }
 
-    return () => {
-      listener.subscription.unsubscribe();
+        if (data?.session) {
+          setValidSession(true);
+        }
+      } else {
+        navigate('/');
+      }
     };
-  }, []);
 
-  useEffect(() => {
-    if (sessionChecked && !validSession) {
-      navigate('/');
-    }
-  }, [sessionChecked, validSession, navigate]);
+    init();
+  }, [type, accessToken, refreshToken, navigate]);
+  
+  // useEffect(() => {
+  //   if (sessionChecked && !validSession) {
+  //     navigate('/');
+  //   }
+  // }, [sessionChecked, validSession, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,6 +60,10 @@ const UpdatePassword = () => {
     } else {
       setStatus({ success: true, message: 'Password updated successfully!' });
     }
+    const timer = setTimeout(() => {
+        navigate('/')
+      }, 3000);
+  
   };
 
   if (!sessionChecked) return <p>Verifying reset session...</p>;

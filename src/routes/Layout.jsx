@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import {Link, Outlet} from 'react-router-dom'
 import './Layout.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,6 +15,15 @@ const Layout = () =>{
     const [emailSent, setEmailSent] = useState(false);
     const [forgetPassword,setForgetPassword] = useState(false);
     const [openProfile, setOpenProfile] = useState(false);
+
+    useEffect(() => {
+        if (session) {
+            setForgetPassword(false);
+            setEmailSent(false);
+            setOpenSignup(false);
+            setOpenLogin(false);
+        }
+    }, [session]);
     return(
         <div className="app-layout">
             <nav className="nav-bar">
@@ -51,7 +60,6 @@ const Layout = () =>{
             {openSignup && <Signup onClose={()=>setOpenSignup(false)} LoginAccount={()=>setOpenLogin(true)} checkEmail={()=>setEmailSent(true)}/>}
             {emailSent && <CheckEmail onClose={()=>setEmailSent(false)}/>}
             {forgetPassword && <ResetPasswords onClose={()=>setForgetPassword(false) } LoginAccount={()=>setOpenLogin(true)}/>}
-            {session && setForgetPassword(false)}
         </div>
 
     )

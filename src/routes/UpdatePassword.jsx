@@ -66,7 +66,9 @@ const UpdatePassword = () => {
   
   };
 
-  if (!sessionChecked) return <p>Verifying reset session...</p>;
+  if (!validSession) return null;
+
+  // if (!sessionChecked) return <p>Verifying reset session...</p>;
 
   return (
     <div className="update-password-page">

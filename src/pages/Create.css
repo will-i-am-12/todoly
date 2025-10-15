@@ -24,10 +24,10 @@
   margin: 1rem auto;
 }
 textarea{
-  max-width: 600px;
+  max-width: 800px;
   max-height: 400px;
-  height: 200px;
-  width: 500px;
+  height: 3%;
+  width: 600px;
   padding: 1.5rem 1rem;
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -43,8 +43,8 @@ textarea{
 button{
     width: 200px;
     cursor: pointer;
-    border-radius: 20px;
-    font-size: 2rem;
+    border-radius: 50px;
+    font-size: 20px;
     background-color: #FFC4C4;
     padding: 1rem;
     padding-right: 10px;

@@ -17,11 +17,11 @@ const Create = () =>{
             { content: form.context, user_id: session.user.id }
         ]);
 
-        if (!error) navigate("/tasks");
+        if (!error) navigate("/");
         else console.error(error);
         }
     const moveBack =()=>{
-        navigate('/');
+        navigate('/tasks');
     }
     return(
         

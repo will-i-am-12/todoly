@@ -25,6 +25,7 @@ const Layout = () =>{
         try{
             await signOut();
             navigate('/');
+            setOpenProfile(false);
         }
         catch(err){
             console.error(err);

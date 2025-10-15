@@ -9,7 +9,7 @@ const Tasks = () =>{
                 <span className='circle-bottom'></span>
             </div>
 
-            <div>
+            <div className='title'>
                 <h1>MY TASKS</h1>
             </div>
 

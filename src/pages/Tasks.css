@@ -11,8 +11,10 @@
 }
 
 .subtitle h1{
-  padding: 3rem;
+  display: inline-block;
+  padding: 1rem;
   font-size: 2rem;
   background-color: #FFC4C4;
-  margin: 1rem;
+  margin: 3rem;
+
 }

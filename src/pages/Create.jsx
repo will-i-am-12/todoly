@@ -30,14 +30,16 @@ const Create = () =>{
             <div className='add-subtitle'>
                 <h1>ADD NEW TASK</h1>
             </div>
-            <form className = "form"onSubmit={handleSubmit}>
+            <form className = "form" onSubmit={handleSubmit}>
                 <textarea
                     placeholder="Additional content..."
                     value={form.context}
                     onChange={(e) => setForm({ ...form, context: e.target.value })}
                 />
-                <button type="submit">ADD</button>
-                <button type="back" onClick={moveBack}>BACK</button>
+                <div className='form-button'>
+                    <button type="submit">ADD</button>
+                    <button type="back" onClick={moveBack}>BACK</button>
+                </div>
 
             </form>
         </div>

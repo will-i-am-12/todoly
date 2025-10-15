@@ -29,11 +29,12 @@ textarea{
   max-width: 600px;
   max-height: 400px;
   height: 200px;
+  width: 500px;
   padding: 0.6rem 0.8rem;
   margin-bottom: 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-border-radius: 5px;
+  border-radius: 5px;
   resize: vertical;
 }
 
@@ -44,7 +45,7 @@ border-radius: 5px;
 button{
     cursor: pointer;
     border-radius: 20px;
-    font-size: 2rem;
+    font-size: 1rem;
     background-color: #FFC4C4;
     padding: 1rem;
 }

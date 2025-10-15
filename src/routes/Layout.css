@@ -54,5 +54,7 @@ nav{
 
 .profile-dropdown{
     background-color: aquamarine;
-    margin: 5px;
+    padding: 10px;
+    position: absolute;
+    
 }

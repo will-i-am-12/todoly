@@ -13,7 +13,7 @@
 .add-subtitle{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 60px;
     font-size: 15px;
 
 }
@@ -21,14 +21,14 @@
 .form {
   display: flex;
   flex-direction: column;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 textarea{
   max-width: 600px;
   max-height: 400px;
   height: 200px;
   width: 500px;
-  padding: 0.8rem 1rem;
+  padding: 1.5rem 1rem;
   margin-bottom: 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;

@@ -50,13 +50,6 @@ const Layout = () =>{
                             <Link to ='/create'><FontAwesomeIcon icon={faCirclePlus} /></Link>
                             <div onClick={()=>setOpenProfile(prev=>!prev)}><FontAwesomeIcon icon={faUser} /></div>
                         </div>
-                            {
-                                openProfile &&(
-                                <div className="profile-dropdown">
-                                    <div className='signout' onClick={handleSignOut}><h1>Sign out</h1></div>
-                                </div>
-                                    )
-                            }
                         </>
                         )
                         :(
@@ -67,6 +60,13 @@ const Layout = () =>{
                     }
                 </div>
             </nav>
+            {
+                openProfile &&(
+                <div className="profile-dropdown">
+                    <div className='signout' onClick={handleSignOut}><h1>Sign out</h1></div>
+                </div>
+                    )
+            }
             <div className="content">
                 <Outlet/>
             </div>

@@ -13,8 +13,8 @@
 .add-subtitle{
     display: flex;
     justify-content: center;
-    margin-top: 60px;
-    font-size: 15px;
+    margin-top: 80px;
+    font-size: 18px;
 
 }
 
@@ -31,7 +31,7 @@ textarea{
   padding: 1.5rem 1rem;
   margin-bottom: 1rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 50px;
   resize: vertical;
 }

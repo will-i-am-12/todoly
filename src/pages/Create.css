@@ -41,7 +41,7 @@ textarea{
     gap: 20px;
 }
 button{
-    width: 30px;
+    width: 100px;
     cursor: pointer;
     border-radius: 20px;
     font-size: 2rem;

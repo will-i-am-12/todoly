@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    font-size: 2rem;
+    font-size: 40px;
 
 }
 
@@ -42,7 +42,7 @@ textarea{
 }
 button{
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 30%;
     font-size: 2rem;
     background-color: #FFC4C4;
     padding: 1rem;

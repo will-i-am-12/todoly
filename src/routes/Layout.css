@@ -53,8 +53,11 @@ nav{
 
 
 .profile-dropdown{
-    background-color: aquamarine;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 100;
     position: absolute;
-    
+    top: 100%;
+    right: 0;
 }

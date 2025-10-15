@@ -60,4 +60,6 @@ nav{
     position: absolute;
     top: 100%;
     right: 0;
+    color: black;
+    background-color: #FFC4C4;
 }

@@ -8,14 +8,28 @@ import Signup from "../components/Signup.jsx"
 import { UserAuth } from '../context/AuthContext';
 import CheckEmail from "../components/CheckEmail.jsx";
 import ResetPasswords from "../components/ResetPasswords.jsx";
+import { useNavigate } from 'react-router-dom'
+
+
 const Layout = () =>{
+
     const [openLogin,setOpenLogin] = useState(false);
     const [openSignup,setOpenSignup] = useState(false);
-    const { session } = UserAuth();
     const [emailSent, setEmailSent] = useState(false);
     const [forgetPassword,setForgetPassword] = useState(false);
     const [openProfile, setOpenProfile] = useState(false);
-
+    const {session,signOut} = UserAuth()
+    const navigate = useNavigate();
+    const handleSignOut = async(e) =>{
+        e.preventDefault();
+        try{
+            await signOut();
+            navigate('/');
+        }
+        catch(err){
+            console.error(err);
+        }
+    }
     useEffect(() => {
         if (session) {
             setForgetPassword(false);
@@ -39,7 +53,7 @@ const Layout = () =>{
                             {
                                 openProfile &&(
                                 <div className="profile-dropdown">
-                                            <p>Profile Options</p>
+                                    <div className='signout' onClick={handleSignOut}><h1>Sign out</h1></div>
                                 </div>
                                     )
                             }

@@ -45,3 +45,14 @@ nav{
 .content{
     padding-top: 80px;
 }
+
+.signout{
+  cursor: pointer;
+  
+}
+
+
+.profile-dropdown{
+    background-color: aquamarine;
+    margin: 5px;
+}

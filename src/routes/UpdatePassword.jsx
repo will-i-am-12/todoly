@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { supabase } from '/client';
-import { UserAuth } from '../context/AuthContext';
 
 const UpdatePassword = () => {
-  const [signOut] = UserAuth
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [status, setStatus] = useState(null);
@@ -56,10 +54,10 @@ const UpdatePassword = () => {
       setStatus({ success: false, message: error.message });
     } else {
       setStatus({ success: true, message: 'Password updated successfully!' });
-    }
-    const timer = setTimeout(() => {
+      setTimeout(() => {
         navigate('/')
       }, 3000);
+    }
   
   };
 

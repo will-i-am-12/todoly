@@ -13,7 +13,7 @@
 .add-subtitle{
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 20px;
     font-size: 20px;
 
 }
@@ -38,15 +38,15 @@ textarea{
 
 .form-button{
     display: flex;
-    gap: 10px;
+    justify-content:space-between;
 }
 button{
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 20px;
     font-size: 2rem;
     background-color: #FFC4C4;
     padding: 1rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 10px;
+    padding-left: 10px;
     font-weight: bold;
 }

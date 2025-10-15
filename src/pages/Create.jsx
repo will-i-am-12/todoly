@@ -32,7 +32,7 @@ const Create = () =>{
             </div>
             <form className = "form" onSubmit={handleSubmit}>
                 <textarea
-                    placeholder="Additional content..."
+                    placeholder="Add task..."
                     value={form.context}
                     onChange={(e) => setForm({ ...form, context: e.target.value })}
                 />

@@ -13,7 +13,7 @@
 .add-subtitle{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 50px;
     font-size: 20px;
 
 }
@@ -38,7 +38,7 @@ textarea{
 
 .form-button{
     display: flex;
-    justify-content:space-between;
+    gap: 20px;
 }
 button{
     cursor: pointer;

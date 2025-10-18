@@ -26,7 +26,7 @@ const Tasks = () =>{
                 .order('id', { ascending: true })
 
                 if(taskError) throw taskError
-                setTasks(taskData || [])
+                setTasks(taskData)
             }
             catch(err){
                 console.error("Error fetching data:", err)

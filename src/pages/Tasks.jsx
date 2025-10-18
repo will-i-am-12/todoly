@@ -4,6 +4,7 @@ import { useNavigate, useParams} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { supabase } from "/client.js"
+
 const Tasks = () =>{
     const { id } = useParams()
     const navigate = useNavigate()
@@ -50,6 +51,10 @@ const Tasks = () =>{
         console.error("Error deleting task:", err)
         }
     }
+
+    const handleEdit = async (taskId) =>{
+        navigate(`/edit/${taskId}`)
+    }   
     return(
         <div>
             <div>

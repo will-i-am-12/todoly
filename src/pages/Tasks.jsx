@@ -8,9 +8,9 @@ const Tasks = () =>{
     const { id } = useParams()
     const navigate = useNavigate()
 
-    const{user} = UserAuth();
-    
-    const[task,setTask] =useState(null)
+    const{session} = UserAuth();
+    const user = session?.user
+    const[tasks,setTasks] =useState(null)
     const[loading,setLoading] = useState(true)
     const[error, setError] = useState(null)
     
@@ -22,12 +22,11 @@ const Tasks = () =>{
                 const {data: taskData, error: taskError} = await supabase 
                 .from("todo")
                 .select()
-                .eq("id",id)
                 .eq("user_id", user.id)
-                .single()
+                .order('id', { ascending: true })
 
                 if(taskError) throw taskError
-                setTask(taskData)
+                setTasks(taskData || [])
             }
             catch(err){
                 console.error("Error fetching data:", err)
@@ -40,7 +39,7 @@ const Tasks = () =>{
         fetchData()
     },[id])
 
-    const handleDelete = async ()=>{
+    const handleDelete = async (taskId)=>{
         try{
             const{error} = await supabase.from("todo").delete().eq("id",id).eq("user_id", user.id);
             if (error) throw error
@@ -66,11 +65,11 @@ const Tasks = () =>{
                 ) : (
                 tasks.map((task) => (
                     <div className="task-item" key={task.id}>
-                        <input
+                        {/* <input
                             type="checkbox"
                             checked={task.completed || false}
                             onChange={() => handleToggleComplete(task)}
-                        />
+                        /> */}
                         <span className={`task-text ${task.completed ? 'completed' : ''}`}>
                             {task.content}
                         </span>

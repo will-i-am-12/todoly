@@ -50,6 +50,9 @@ nav{
   cursor: pointer;
   
 }
+.signout:hover{
+    text-decoration: underline;
+}
 
 
 .profile-dropdown{

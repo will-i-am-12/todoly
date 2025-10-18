@@ -3,7 +3,7 @@ import { UserAuth } from '../context/AuthContext'
 import { useNavigate, useParams} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
-
+import { supabase } from "/client.js"
 const Tasks = () =>{
     const { id } = useParams()
     const navigate = useNavigate()
@@ -41,7 +41,7 @@ const Tasks = () =>{
 
     const handleDelete = async (taskId)=>{
         try{
-            const{error} = await supabase.from("todo").delete().eq("id",id).eq("user_id", user.id);
+            const{error} = await supabase.from("todo").delete().eq("id",taskId).eq("user_id", user.id);
             if (error) throw error
             navigate("/")
         }
@@ -60,7 +60,7 @@ const Tasks = () =>{
             </div>
 
             <div className="tasks-list">
-                {tasks.length === 0 ? (
+                {tasks === null ? (
                 <p>No tasks yet.</p>
                 ) : (
                 tasks.map((task) => (

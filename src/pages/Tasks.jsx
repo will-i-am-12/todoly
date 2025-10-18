@@ -23,7 +23,7 @@ const Tasks = () =>{
             try{
                 const {data: taskData, error: taskError} = await supabase 
                 .from("todo")
-                .select()
+                .select("*")
                 .eq("user_id", user.id)
                 .order('id', { ascending: true })
 

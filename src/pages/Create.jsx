@@ -13,6 +13,10 @@ const Create = () =>{
         e.preventDefault();
         if (!form.context) return;
 
+        if (!session || !session.user) {
+            console.error('No user session found.');
+            return;
+        }
         const { error } = await supabase.from("todo").insert([
             { content: form.context, user_id: session.user.id }
         ]);
@@ -38,7 +42,7 @@ const Create = () =>{
                 />
                 <div className='form-button'>
                     <button type="submit">ADD</button>
-                    <button type="back" onClick={moveBack}>BACK</button>
+                    <button type="button" onClick={moveBack}>BACK</button>
                 </div>
 
             </form>

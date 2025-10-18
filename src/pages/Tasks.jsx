@@ -37,7 +37,7 @@ const Tasks = () =>{
             }
         }
         fetchData()
-    },[id])
+    },[user])
 
     const handleDelete = async (taskId)=>{
         try{

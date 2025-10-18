@@ -24,7 +24,7 @@ const Create = () =>{
         if (!error)
         {
             setForm({ context: "" });
-            navigate("/");
+            navigate("/tasks");
         }
         else console.error(error);
     }

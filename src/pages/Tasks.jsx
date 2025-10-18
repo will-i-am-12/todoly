@@ -15,6 +15,7 @@ const Tasks = () =>{
     const[error, setError] = useState(null)
     
     useEffect (()=>{
+        if (!user) return;
         const fetchData = async ()=>{
             setError(null)
 

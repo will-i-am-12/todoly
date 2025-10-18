@@ -21,9 +21,15 @@ const Create = () =>{
             { content: form.context, user_id: session.user.id }
         ]);
 
-        if (!error) navigate("/");
-        else console.error(error);
+        if (!error)
+        {
+            setForm({ context: "" });
+            navigate("/");
         }
+        else console.error(error);
+    }
+        
+
     const moveBack =()=>{
         navigate('/tasks');
     }

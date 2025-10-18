@@ -1,8 +1,55 @@
 import './Tasks.css' 
 import { UserAuth } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+
 const Tasks = () =>{
+    const { id } = useParams()
+    const navigate = useNavigate()
+
+    const{user} = UserAuth();
     
+    const[task,setTask] =useState(null)
+    const[loading,setLoading] = useState(true)
+    const[error, setError] = useState(null)
+    
+    useEffect (()=>{
+        const fetchData = async ()=>{
+            setError(null)
+
+            try{
+                const {data: taskData, error: taskError} = await supabase 
+                .from("todo")
+                .select()
+                .eq("id",id)
+                .eq("user_id", user.id)
+                .single()
+
+                if(taskError) throw taskError
+                setTask(taskData)
+            }
+            catch(err){
+                console.error("Error fetching data:", err)
+                setError("Failed to load task data.")
+            }
+            finally{
+                setLoading(false)
+            }
+        }
+        fetchData()
+    },[id])
+
+    const handleDelete = async ()=>{
+        try{
+            const{error} = await supabase.from("todo").delete().eq("id",id).eq("user_id", user.id);
+            if (error) throw error
+            navigate("/")
+        }
+        catch (err) {
+        console.error("Error deleting task:", err)
+        }
+    }
     return(
         <div>
             <div>
@@ -13,8 +60,27 @@ const Tasks = () =>{
                 <h1>MY TASKS</h1>
             </div>
 
-            <div>
-
+            <div className="tasks-list">
+                {tasks.length === 0 ? (
+                <p>No tasks yet.</p>
+                ) : (
+                tasks.map((task) => (
+                    <div className="task-item" key={task.id}>
+                        <input
+                            type="checkbox"
+                            checked={task.completed || false}
+                            onChange={() => handleToggleComplete(task)}
+                        />
+                        <span className={`task-text ${task.completed ? 'completed' : ''}`}>
+                            {task.content}
+                        </span>
+                        <div className="task-actions">
+                            <FaEdit className="icon edit" onClick={() => handleEdit(task.id)} />
+                            <FaTrashAlt className="icon delete" onClick={() => handleDelete(task.id)} />
+                        </div>
+                    </div>
+                ))
+                )}
             </div>
         </div>
     )

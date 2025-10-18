@@ -61,6 +61,8 @@ const Tasks = () =>{
 
             <div className="tasks-list">
                 {tasks === null ? (
+                <p>Loading...</p>
+                ) : tasks.length === 0 ? (
                 <p>No tasks yet.</p>
                 ) : (
                 tasks.map((task) => (

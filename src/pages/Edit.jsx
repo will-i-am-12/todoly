@@ -66,18 +66,19 @@ const Edit = () =>{
     if (error) return <p>{error}</p>;
 
     return(
-        <div className="edit-page">
-            <h1>Edit Task</h1>
+        <div>
+            <span className='circle'></span>
+            <h1 className='edit-subtitle'>Edit Task</h1>
             <form onSubmit={handleSubmit}>
                 <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 />
-                <div>
-                <button type="submit">Save</button>
-                <button type="button" onClick={() => navigate('/tasks')}>
-                    Cancel
-                </button>
+                <div className='form-button'>
+                    <button type="submit">Save</button>
+                    <button type="button" onClick={() => navigate('/tasks')}>
+                        Cancel
+                    </button>
                 </div>
             </form>
         </div>

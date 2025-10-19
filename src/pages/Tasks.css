@@ -37,13 +37,15 @@ font-size: 20px;
   box-shadow: 1px 1px 1px #FFC4C4;
   
 }
-
+.checkbox-text input[type="checkbox"] {
+  transform: scale(1.5); 
+}
 .task-actions{
   display: flex;
-  gap: 3px;
+  gap: 6px;
 }
 
-.complete{
+.completed{
   background-color: green;
-  
+
 }

@@ -65,7 +65,8 @@ input[type = "checkbox"]{
 
 .task-actions{
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .icon-edit{

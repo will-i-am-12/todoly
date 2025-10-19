@@ -52,6 +52,7 @@ input[type = "checkbox"]{
   transform: scale(1.5); 
    margin: 0;          
   padding: 0;     
+  cursor: pointer;
 
 }
 
@@ -59,6 +60,14 @@ input[type = "checkbox"]{
   display: flex;
   gap: 8px;
 }
+
+.icon-edit{
+  cursor: pointer;
+}
+.icon-delete{
+  cursor: pointer;
+}
+
 
 .completed{
   background-color:#C4FFC4;

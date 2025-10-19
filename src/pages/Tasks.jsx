@@ -105,8 +105,8 @@ const Tasks = () =>{
                             </span>
                         </div>
                         <div className="task-actions">
-                            <FaEdit className="icon edit" onClick={() => handleEdit(task.id)} />
-                            <FaTrashAlt className="icon delete" onClick={() => handleDelete(task.id)} />
+                            <FaEdit className="icon-edit" onClick={() => handleEdit(task.id)} />
+                            <FaTrashAlt className="icon-delete" onClick={() => handleDelete(task.id)} />
                         </div>
                     </div>
                 ))

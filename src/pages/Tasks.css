@@ -37,6 +37,13 @@ font-size: 20px;
   box-shadow: 1px 1px 1px #FFC4C4;
   
 }
+
+.checkbox-text {
+  display: flex;
+  align-items: center; 
+  gap: 0.5rem;      
+}
+
 .checkbox-text input[type="checkbox"] {
   transform: scale(1.5); 
 }
@@ -46,6 +53,6 @@ font-size: 20px;
 }
 
 .completed{
-  background-color: green;
+  background-color:#C4FFC4;
 
 }

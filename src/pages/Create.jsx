@@ -45,7 +45,7 @@ const Create = () =>{
                     placeholder="Add task..."
                     value={form.context}
                     onChange={(e) => setForm({ ...form, context: e.target.value })}
-                    maxLength={250}
+                    maxLength={1000}
                 />
                 <div className='form-button'>
                     <button type="submit">ADD</button>

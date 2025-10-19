@@ -42,7 +42,7 @@ font-size: 20px;
   white-space: normal;      
   overflow-wrap: anywhere; 
   word-break: break-word;
-  max-width: 90%;      
+  max-width: 95%;      
   
 }
 input[type = "checkbox"]{
@@ -53,7 +53,7 @@ input[type = "checkbox"]{
 .checkbox-text {
   display: flex;
   align-items: center; 
-  gap: 0.5rem;      
+  gap: 1rem;      
 }
 
 .checkbox-text input[type="checkbox"] {

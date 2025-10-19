@@ -94,14 +94,14 @@ const Tasks = () =>{
                 tasks.map((task) => (
                     <div className="task-item" key={task.id}>
                         <div>
-                            <input
-                            type="checkbox"
-                            checked={task.completed || false}
-                            onChange={() => handleToggleComplete(task)}
-                        />
-                        <span className={`task-text ${task.completed ? 'completed' : ''}`}>
-                            {task.content}
-                        </span>
+                                <input
+                                type="checkbox"
+                                checked={task.completed || false}
+                                onChange={() => handleToggleComplete(task)}
+                            />
+                            <span className={`task-text ${task.completed ? 'completed' : ''}`}>
+                                {task.content}
+                            </span>
                         </div>
                         <div className="task-actions">
                             <FaEdit className="icon edit" onClick={() => handleEdit(task.id)} />

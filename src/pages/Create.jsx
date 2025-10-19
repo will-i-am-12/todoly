@@ -11,7 +11,7 @@ const Create = () =>{
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!form.context) return;
+        if (!form.context.trim()) return;
 
         if (!session || !session.user) {
             console.error('No user session found.');

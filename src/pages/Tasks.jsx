@@ -50,6 +50,7 @@ const Tasks = () =>{
         catch (err) {
         console.error("Error deleting task:", err)
         }
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
     }
 
     const handleEdit = async (taskId) =>{

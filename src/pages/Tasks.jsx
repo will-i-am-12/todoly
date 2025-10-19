@@ -92,7 +92,7 @@ const Tasks = () =>{
                 <p>No tasks yet.</p>
                 ) : (
                 tasks.map((task) => (
-                    <div className="task-item" key={task.id}>
+                    <div className={`task-item ${task.completed ? 'completed' : ''}`} key={task.id}>
                         <div>
                                 <input
                                 type="checkbox"

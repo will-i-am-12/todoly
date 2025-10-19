@@ -10,7 +10,7 @@ import { AuthContextProvider } from './context/AuthContext.jsx'
 import PrivateRoute from './routes/PrivateRoute.jsx'
 import NotFound from './routes/NotFound.jsx'
 import UpdatePassword from './routes/UpdatePassword.jsx'
-import Edit from './Edit';
+import Edit from './pages/Edit.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

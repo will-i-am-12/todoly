@@ -45,8 +45,12 @@ font-size: 20px;
 
 .checkbox-text input[type="checkbox"] {
   transform: scale(1.5); 
-  padding:0;
-  margin: 0;
+
+}
+input[type="checkbox"] {
+  margin: 0;          
+  padding: 0;         
+  vertical-align: middle; 
 }
 .task-actions{
   display: flex;

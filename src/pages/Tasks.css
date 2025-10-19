@@ -39,9 +39,9 @@ font-size: 20px;
 }
 
 .task-text{
-  white-space: normal;      
-  /* word-wrap: break-word;     
-  overflow-wrap: break-word; */
+  /* white-space: normal;       */
+  word-wrap: break-word;     
+  /* overflow-wrap: break-word; */
 }
 input[type = "checkbox"]{
 

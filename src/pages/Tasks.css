@@ -31,10 +31,10 @@ font-size: 20px;
 .task-item{
   display: flex;
   justify-content: space-between;
+  align-items: centwe;
   background-color: #FFC4C4;
-  padding: 10px;
+  padding: 0.75 rem 1 rem;
   margin-bottom: 5px;
-  
 }
 
 .checkbox-text {
@@ -45,16 +45,14 @@ font-size: 20px;
 
 .checkbox-text input[type="checkbox"] {
   transform: scale(1.5); 
+   margin: 0;          
+  padding: 0;     
 
 }
-input[type="checkbox"] {
-  margin: 0;          
-  padding: 0;         
-  vertical-align: middle; 
-}
+
 .task-actions{
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
 
 .completed{

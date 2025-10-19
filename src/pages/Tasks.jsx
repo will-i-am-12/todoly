@@ -55,6 +55,26 @@ const Tasks = () =>{
     const handleEdit = async (taskId) =>{
         navigate(`/edit/${taskId}`)
     }   
+    const handleToggleComplete = async (task) => {
+        try {
+ 
+            const { error } = await supabase
+            .from("todo")
+            .update({ completed: !task.completed }) 
+            .eq("id", task.id)
+            .eq("user_id", user.id);
+
+            if (error) throw error;
+
+            setTasks((prevTasks) =>
+            prevTasks.map((t) =>
+                t.id === task.id ? { ...t, completed: !t.completed } : t
+            )
+            );
+        } catch (err) {
+            console.error("Failed to toggle task:", err);
+        }
+    };
     return(
         <div>
             <div>
@@ -73,11 +93,11 @@ const Tasks = () =>{
                 ) : (
                 tasks.map((task) => (
                     <div className="task-item" key={task.id}>
-                        {/* <input
+                        <input
                             type="checkbox"
                             checked={task.completed || false}
                             onChange={() => handleToggleComplete(task)}
-                        /> */}
+                        />
                         <span className={`task-text ${task.completed ? 'completed' : ''}`}>
                             {task.content}
                         </span>

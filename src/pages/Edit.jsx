@@ -75,7 +75,7 @@ const Edit = () =>{
                 <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                maxLength={1000}
+                maxLength={250}
                 />
                 <div className='form-button'>
                     <button type="submit">Save</button>

@@ -24,7 +24,7 @@ const Edit = () =>{
                 const { data, error } = await supabase
                     .from("todo")
                     .select("content")
-                    .eq("id", id)
+                    .eq("id", parseInt(id))
                     .eq("user_id", user.id)
                     .single();
 
@@ -50,11 +50,11 @@ const Edit = () =>{
         const { error } = await supabase
             .from('todo')
             .update({ content })
-            .eq('id', id)
+            .eq('id', parseInt(id))
             .eq('user_id', user.id);
 
         if (error) throw error;
-        navigate('/tasks'); // Redirect after edit
+        navigate('/tasks');
         } catch (err) {
         console.error(err);
         setError('Failed to update task');

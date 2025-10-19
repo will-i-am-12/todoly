@@ -68,8 +68,10 @@ const Edit = () =>{
     return(
         <div>
             <span className='circle'></span>
-            <h1 className='edit-subtitle'>Edit Task</h1>
-            <form onSubmit={handleSubmit}>
+            <div className='edit-subtitle'>
+                <h1>Edit Task</h1>
+            </div>
+            <form className= 'form' onSubmit={handleSubmit}>
                 <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}

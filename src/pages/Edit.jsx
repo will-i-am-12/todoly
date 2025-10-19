@@ -44,7 +44,7 @@ const Edit = () =>{
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!content) return;
+        if (!content.trim()) return;
 
         try {
         const { error } = await supabase

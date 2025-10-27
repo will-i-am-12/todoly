@@ -80,5 +80,5 @@ input[type = "checkbox"]{
 
 .completed{
   background-color:#C4FFC4;
-
+  text-decoration: line-through;
 }

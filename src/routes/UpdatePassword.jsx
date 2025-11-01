@@ -66,7 +66,7 @@ const UpdatePassword = () => {
 
   return (
     <div className="update-password-page">
-      <h2>Set New Password</h2>
+      <h2 className='update-password-title'>Set New Password</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="password"
@@ -83,7 +83,7 @@ const UpdatePassword = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit">Update Password</button>
+        <button className = "update-password-button"type="submit">Update Password</button>
       </form>
       {status && (
         <p className={status.success ? 'success' : 'error'}>{status.message}</p>
